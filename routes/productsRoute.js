@@ -8,6 +8,11 @@ router.post("/", (req, res) => {
   res.status(201).json(addProduct);
 });
 
+router.get("/viewproducts", async (req, res) => {
+  const produts = await product.find();
+  res.status(201).json(produts);
+});
+
 router.get("/:id", async (req, res) => {
   const viewProductById = await product.findById(req.params.id);
   viewProductById.save();

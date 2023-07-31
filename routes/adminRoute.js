@@ -2,13 +2,18 @@ const express = require("express");
 const router = express.Router();
 const admins = require("../models/adminModel");
 
+const cors = require("cors");
+let corsOptions = {
+  origin: ["http://localhost:8000"],
+};
+
 router.post("/", (req, res) => {
   const admin = new admins(req.body);
   admin.save();
   res.status(201).json(admin);
 });
 
-router.post("/adminlogin", async (req, res) => {
+router.post("/adminlogin", cors(corsOptions), async (req, res) => {
   const admin = await admins.findOne(req.body);
   if (admin) {
     res.status(201).json(admin);

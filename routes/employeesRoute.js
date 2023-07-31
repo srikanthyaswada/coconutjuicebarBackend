@@ -8,6 +8,11 @@ router.post("/", (req, res) => {
   res.status(201).json(addEmployee);
 });
 
+router.get("/viewemplyoees", async (req, res) => {
+  const viewEmployees = await employee.find();
+  res.status(201).json(viewEmployees);
+});
+
 router.get("/:id", async (req, res) => {
   const viewEmpById = await employee.findById(req.params.id);
   viewEmpById.save();
