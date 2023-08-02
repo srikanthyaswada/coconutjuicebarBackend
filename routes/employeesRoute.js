@@ -8,7 +8,7 @@ router.post("/", (req, res) => {
   res.status(201).json(addEmployee);
 });
 
-router.get("/viewemplyoees", async (req, res) => {
+router.get("/viewemployees", async (req, res) => {
   const viewEmployees = await employee.find();
   res.status(201).json(viewEmployees);
 });
