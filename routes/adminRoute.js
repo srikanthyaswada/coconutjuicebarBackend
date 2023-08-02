@@ -7,12 +7,11 @@ let corsOptions = {
   origin: ["http://localhost:8000"],
 };
 
-router.post("/", (req, res) => {
+router.post("/", cors(corsOptions), (req, res) => {
   const admin = new admins(req.body);
   admin.save();
   res.status(201).json(admin);
 });
-
 
 router.post("/adminlogin", cors(corsOptions), async (req, res) => {
   const admin = await admins.findOne(req.body);
@@ -23,19 +22,19 @@ router.post("/adminlogin", cors(corsOptions), async (req, res) => {
   }
 });
 
-router.get("/:id", async (req, res) => {
+router.get("/:id", cors(corsOptions), async (req, res) => {
   const admin = await admins.findById(req.params.id);
   admin.save();
   res.status(201).json(admin);
 });
 
-router.put("/update/:id", async (req, res) => {
+router.put("/update/:id", cors(corsOptions), async (req, res) => {
   const admin = await admins.findByIdAndUpdate(req.params.id, req.body);
   admin.save();
   res.status(201).json(admin);
 });
 
-router.delete("/delete/:id", async (req, res) => {
+router.delete("/delete/:id", cors(corsOptions), async (req, res) => {
   const admin = await admins.findByIdAndDelete(req.params.id);
   admin.save();
   res.status(201).json(admin);

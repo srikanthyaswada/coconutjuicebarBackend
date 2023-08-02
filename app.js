@@ -23,8 +23,8 @@ mongoose
 app.use(cors());
 app.use(express.json());
 app.use("/admin", cors(corsOptions), adminlogin);
-app.use("/product", productRoute);
-app.use("/employees", employeeRoute);
+app.use("/product", cors(corsOptions), productRoute);
+app.use("/employees", cors(corsOptions), employeeRoute);
 
 app.listen(port, (err) => {
   if (!err) {
