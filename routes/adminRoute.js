@@ -13,6 +13,7 @@ router.post("/", (req, res) => {
   res.status(201).json(admin);
 });
 
+
 router.post("/adminlogin", cors(corsOptions), async (req, res) => {
   const admin = await admins.findOne(req.body);
   if (admin) {
