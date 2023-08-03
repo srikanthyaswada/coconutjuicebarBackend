@@ -1,9 +1,11 @@
 const express = require("express");
 const mongoose = require("mongoose");
 
+const adminlogin = require("./routes/adminRoute");
 const productRoute = require("./routes/productsRoute");
 const employeeRoute = require("./routes/employeesRoute");
-const adminlogin = require("./routes/adminRoute");
+const expenseRoute = require("./routes/expenseRoute");
+
 const dotenv = require("dotenv");
 dotenv.config();
 
@@ -25,7 +27,7 @@ app.use(express.json());
 app.use("/admin", cors(corsOptions), adminlogin);
 app.use("/product", cors(corsOptions), productRoute);
 app.use("/employees", cors(corsOptions), employeeRoute);
-
+app.use("/expenses", cors(corsOptions), expenseRoute);
 app.listen(port, (err) => {
   if (!err) {
     console.log(`Server Started on Port ${port}`);
