@@ -13,7 +13,7 @@ router.post("/", cors(corsOptions), (req, res) => {
   res.status(201).json(admin);
 });
 
-router.post("/adminlogin", cors(corsOptions), async (req, res) => {
+router.post("/login", cors(corsOptions), async (req, res) => {
   const admin = await admins.findOne(req.body);
   if (admin) {
     res.status(201).json(admin);
@@ -22,19 +22,19 @@ router.post("/adminlogin", cors(corsOptions), async (req, res) => {
   }
 });
 
-router.get("/:id", cors(corsOptions), async (req, res) => {
+router.get("/viewadmin/:id", cors(corsOptions), async (req, res) => {
   const admin = await admins.findById(req.params.id);
   admin.save();
   res.status(201).json(admin);
 });
 
-router.put("/update/:id", cors(corsOptions), async (req, res) => {
+router.put("/updateadmin:id", cors(corsOptions), async (req, res) => {
   const admin = await admins.findByIdAndUpdate(req.params.id, req.body);
   admin.save();
   res.status(201).json(admin);
 });
 
-router.delete("/delete/:id", cors(corsOptions), async (req, res) => {
+router.delete("/deleteadmin/:id", cors(corsOptions), async (req, res) => {
   const admin = await admins.findByIdAndDelete(req.params.id);
   admin.save();
   res.status(201).json(admin);

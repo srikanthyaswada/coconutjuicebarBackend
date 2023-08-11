@@ -13,7 +13,7 @@ router.get("/viewexpenses", async (req, res) => {
   res.status(201).json(viewExpenses);
 });
 
-router.get("/:id", async (req, res) => {
+router.get("/viewexpenses/:id", async (req, res) => {
   const viewExpenseById = await expenses.findById(req.params.id);
   viewExpenseById.save();
   res.status(201).json(viewExpenseById);

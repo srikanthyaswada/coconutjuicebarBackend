@@ -9,10 +9,13 @@ const addProductSchema = new mongoose.Schema(
       type: String,
     },
     quantity: {
-      type: String,
+      type: Number,
     },
     price: {
-      type: String,
+      type: Number,
+    },
+    rating: {
+      type: Number,
     },
     description: {
       type: String,
