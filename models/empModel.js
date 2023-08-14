@@ -23,6 +23,9 @@ const employeeSchema = new mongoose.Schema(
       type: String,
       enum: ["manager", "employee"],
     },
+    salary: {
+      type: String,
+    },
     address: {
       type: String,
     },

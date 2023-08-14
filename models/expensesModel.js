@@ -12,6 +12,9 @@ const addExpensesSchema = new mongoose.Schema(
     amount: {
       type: String,
     },
+    remarks: {
+      type: String,
+    },
   },
   { timestamps: true }
 );

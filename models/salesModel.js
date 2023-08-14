@@ -24,6 +24,9 @@ const salesSchema = new mongoose.Schema(
     grandTotal: {
       type: Number,
     },
+    income: {
+      type: String,
+    },
   },
   { timestamps: true }
 );
