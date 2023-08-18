@@ -13,4 +13,11 @@ router.get("/vieworders", async (req, res) => {
   res.status(201).json(viewOrders);
 });
 
+router.get("/mobilenumber", async (req, res) => {
+  const viewOrderByMobilenumber = await sales.findOne(
+    "mobilenumber",
+    req.query.mobilenumber
+  );
+  res.status(200).json(viewOrderByMobilenumber);
+});
 module.exports = router;

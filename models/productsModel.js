@@ -8,9 +8,6 @@ const addProductSchema = new mongoose.Schema(
     image: {
       type: String,
     },
-    quantity: {
-      type: Number,
-    },
     price: {
       type: Number,
     },

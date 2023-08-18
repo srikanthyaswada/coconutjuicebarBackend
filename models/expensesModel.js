@@ -6,11 +6,11 @@ const addExpensesSchema = new mongoose.Schema(
       type: String,
     },
     bills: {
-      enum: ["coconut", "food", "rent", "wages", "powerbill"],
+      enum: ["coconut", "fruits","sugar", "rent", "salary", "powerbill"],
       type: String,
     },
     amount: {
-      type: String,
+      type: Number,
     },
     remarks: {
       type: String,
